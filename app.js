@@ -1,5 +1,3 @@
-*/
-
 const PORT = 3000;
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
@@ -70,3 +68,14 @@ app.get('/auth/github/callback',
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+/*
+  * Middleware to ensure is authenticated
+*/
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
