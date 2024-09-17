@@ -25,14 +25,6 @@
 
 ![Client ID and Secret](https://static-assets.codecademy.com/content/paths/web-security/oauth2/NewClient.png)
 
-## Download the Starting and Solution Code
-
-Download the [folder containing the starting and solution code of the project](https://static-assets.codecademy.com/content/paths/web-security/oauth2/github-oauth-app.zip).
-
-The **starting-code** folder contains code to help you get started. Follow the instructions below to complete the project.
-
-We've also included a solution code in the **solution-code** folder to help guide you if you get stuck. You can also compare your solution to our solution after you complete the project.
-
 ## Running Node.js App Locally
 
 If you don't have Node.js installed on your computer, check out this [Setting Up Node Locally](https://www.codecademy.com/articles/setting-up-node-locally) article for instructions.
