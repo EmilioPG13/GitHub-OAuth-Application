@@ -1,6 +1,3 @@
-Here's the markdown version of the GitHub OAuth setup instructions for your README file:
-
-```markdown
 # Set up GitHub OAuth Application
 
 1. Navigate to your GitHub "Settings" page by clicking on your GitHub icon.
@@ -88,6 +85,3 @@ The above command will install all necessary dependencies for your web applicati
 Restart the server and log in to the app using your GitHub account. When you are logged in, you can go to the `/account` page and see details from your GitHub account displayed.
 
 In this project, we implemented OAuth using the `express-session` module to manage user sessions authenticated using the `passport` module. We configured `passport` using the credentials from GitHub and implemented the URL routes for authentication. Finally, we implemented a middleware function to protect the route.
-```
-
-Note: You'll need to replace `image_url_1`, `image_url_2`, etc., with the actual URLs or file paths of your images when you add this to your GitHub README.
