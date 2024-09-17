@@ -1,4 +1,4 @@
-/* 
+/*
  * Package Imports
 */
 
@@ -10,9 +10,7 @@ const session = require("express-session");
 const passport = require('passport');
 const GitHubStrategy = require('passport-github2').Strategy;
 
-
 const app = express();
-
 
 /*
  * Variable Declarations
@@ -30,7 +28,7 @@ passport.use(new GitHubStrategy({
   clientID: GITHUB_CLIENT_ID,
   clientSecret: GITHUB_CLIENT_SECRET,
   callbackURL: 'http://localhost:3000/auth/github/callback'
-  },
+},
 function(accessToken, refreshToken, profile, done) {
   return done(null, profile);
 }));
@@ -39,10 +37,9 @@ passport.serializeUser((user, done) => {
   done(null, user);
 });
 
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
+passport.deserializeUser((user, done) => {
+  done(null, user);
 });
-
 
 /*
  *  Express Project Setup
@@ -63,14 +60,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 /*
  * Routes
 */
 
 app.get('/', (req, res) => {
   res.render('index', { user: req.user });
-})
+});
 
 app.get('/account', (req, res) => {
   res.render('account', { user: req.user });
@@ -78,23 +74,22 @@ app.get('/account', (req, res) => {
 
 app.get('/login', (req, res) => {
   res.render('login', { user: req.user });
-})
+});
 
 app.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
 
+app.get('/auth/github',
+  passport.authenticate('github', { scope: ['user:email'] }));
 
+app.get('/auth/github/callback', 
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  (req, res) => {
+    res.redirect('/');
+  });
 
-
-/*
- * Listener
-*/
-
-app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-/*
- * ensureAuthenticated Callback Function
-*/
-
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
