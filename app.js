@@ -1,19 +1,3 @@
-/*
- * Package Imports
-*/
-
-const path = require("path");
-require("dotenv").config();
-const express = require('express');
-const partials = require('express-partials');
-const session = require("express-session");
-const passport = require('passport');
-const GitHubStrategy = require('passport-github2').Strategy;
-
-const app = express();
-
-/*
- * Variable Declarations
 */
 
 const PORT = 3000;
@@ -51,15 +35,6 @@ app.use(partials());
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 
-app.use(session({
-  secret: 'codecademy',
-  resave: false,
-  saveUninitialized: false
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 /*
  * Routes
 */
@@ -81,15 +56,16 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-// New route for authenticating with GitHub
 app.get('/auth/github',
   passport.authenticate('github', { scope: ['user'] }));
 
+// Authorization callback URL
 app.get('/auth/github/callback', 
-  passport.authenticate('github', { failureRedirect: '/login' }),
-  (req, res) => {
-    res.redirect('/');
-  });
+  passport.authenticate('github', { 
+    failureRedirect: '/login',
+    successRedirect: '/'
+  })
+);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
