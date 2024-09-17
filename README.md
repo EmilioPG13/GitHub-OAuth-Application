@@ -2,15 +2,15 @@
 
 1. Navigate to your GitHub "Settings" page by clicking on your GitHub icon.
 
-![GitHub Settings](image_url_1)
+![GitHub Settings](https://static-assets.codecademy.com/content/paths/web-security/oauth2/settings.png)
 
 2. Select "Developer settings" in the sidebar.
 
-![Developer Settings](image_url_2)
+![Developer Settings](https://static-assets.codecademy.com/content/paths/web-security/oauth2/developer_settings.png)
 
 3. Select "OAuth Apps" in the sidebar of the Developer settings page. Click on the "Register a new application" button.
 
-![OAuth Apps](image_url_3)
+![OAuth Apps](https://static-assets.codecademy.com/content/paths/web-security/oauth2/OAuthApp.png)
 
 4. Fill out the form with the following information:
    - Application Name: OAuth Project (or any name for your project)
@@ -19,11 +19,11 @@
 
 5. Click "Register application".
 
-![Register Application](image_url_4)
+![Register Application](https://static-assets.codecademy.com/content/paths/web-security/oauth2/Register.png)
 
 6. Take note of the Client ID. Click on "Generate a new client secret" to generate a Client secret. Copy both your Client ID and the Client Secret and paste them into a text file somewhere secure. We will be using these in our application. Note that the secret key is displayed only once—when you navigate away from the GitHub page, you will no longer be able to see the Client Secret.
 
-![Client ID and Secret](image_url_5)
+![Client ID and Secret](https://static-assets.codecademy.com/content/paths/web-security/oauth2/NewClient.png)
 
 ## Download the Starting and Solution Code
 
