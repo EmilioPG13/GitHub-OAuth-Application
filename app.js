@@ -81,8 +81,9 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+// New route for authenticating with GitHub
 app.get('/auth/github',
-  passport.authenticate('github', { scope: ['user:email'] }));
+  passport.authenticate('github', { scope: ['user'] }));
 
 app.get('/auth/github/callback', 
   passport.authenticate('github', { failureRedirect: '/login' }),
